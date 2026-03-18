@@ -1,4 +1,6 @@
 import { Component, signal } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { inject } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,8 +10,15 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
     <div class="layout">
       <aside class="sidebar">
         <div class="sidebar-header">
-          <h1>cs-ng-kit</h1>
-          <span class="version">v21.0.0</span>
+          <div class="sidebar-title-row">
+            <div>
+              <h1>cs-ng-kit</h1>
+              <span class="version">v21.0.0</span>
+            </div>
+            <button class="dark-toggle" (click)="toggleDark()" [attr.title]="dark() ? 'Light mode' : 'Dark mode'">
+              <i [class]="dark() ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"></i>
+            </button>
+          </div>
         </div>
         <nav>
           <a routerLink="/dashboard" routerLinkActive="active">
@@ -64,8 +73,18 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
       top: 0; left: 0; bottom: 0; overflow-y: auto;
     }
     .sidebar-header { padding: 0 1.25rem 1.25rem; border-bottom: 1px solid #334155; }
+    .sidebar-title-row { display: flex; align-items: center; justify-content: space-between; }
     .sidebar-header h1 { font-size: 1.25rem; font-weight: 700; }
     .version { font-size: 0.75rem; color: #94a3b8; }
+
+    .dark-toggle {
+      background: #334155; border: 1px solid #475569; color: #e2e8f0;
+      width: 2rem; height: 2rem; border-radius: 6px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; transition: background 0.15s;
+    }
+    .dark-toggle:hover { background: #475569; }
+
     nav { display: flex; flex-direction: column; padding: 0.5rem 0; }
     nav a {
       padding: 0.5rem 1.25rem; color: #cbd5e1; font-size: 0.875rem;
@@ -93,9 +112,17 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   `]
 })
 export class LayoutComponent {
+  private document = inject(DOCUMENT);
+
   sections = signal({ gettingStarted: true, theming: false, components: true });
+  dark = signal(false);
 
   toggle(key: 'gettingStarted' | 'theming' | 'components') {
     this.sections.update(s => ({ ...s, [key]: !s[key] }));
+  }
+
+  toggleDark() {
+    this.dark.update(d => !d);
+    this.document.documentElement.classList.toggle('dark', this.dark());
   }
 }

@@ -13,7 +13,7 @@ import {
     LabelGroupComponent, FormLabelDirective
   ],
   template: `
-    <h1 style="font-size:1.5rem; font-weight:700; margin-bottom:1.5rem;">Date &amp; Time Picker</h1>
+    <h1 class="text-page-title">Date &amp; Time Picker</h1>
 
     <div class="docs">
       <p>Il modulo implementa i componenti <code>app-date-picker</code>, <code>app-time-picker</code>

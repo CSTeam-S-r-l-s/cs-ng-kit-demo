@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-configuration-page',
   template: `
-    <h1 style="font-size:1.5rem; font-weight:700; margin-bottom:1.5rem;">Configurazione</h1>
+    <h1 class="text-page-title">Configurazione</h1>
 
     <div class="docs">
       <h2>Labels / i18n</h2>
@@ -51,12 +51,12 @@ export const appConfig: ApplicationConfig = {{ '{' }}
       <h3>Comuni</h3>
       <div class="demo-section">
         <table style="width:100%; font-size:0.85rem; border-collapse:collapse;">
-          <tr style="border-bottom:1px solid #e5e7eb;">
+          <tr class="table-border-row">
             <th style="text-align:left; padding:0.4rem 0.5rem;">Chiave</th>
             <th style="text-align:left; padding:0.4rem 0.5rem;">Default</th>
           </tr>
           @for (item of commonLabels; track item.key) {
-            <tr style="border-bottom:1px solid #f1f5f9;">
+            <tr class="table-border-row-light">
               <td style="padding:0.3rem 0.5rem;"><code>{{ item.key }}</code></td>
               <td style="padding:0.3rem 0.5rem;">{{ item.value }}</td>
             </tr>
@@ -71,7 +71,7 @@ export const appConfig: ApplicationConfig = {{ '{' }}
       <div class="demo-section">
         <table style="width:100%; font-size:0.85rem; border-collapse:collapse;">
           @for (item of tableLabels; track item.key) {
-            <tr style="border-bottom:1px solid #f1f5f9;">
+            <tr class="table-border-row-light">
               <td style="padding:0.3rem 0.5rem;"><code>{{ item.key }}</code></td>
               <td style="padding:0.3rem 0.5rem;">{{ item.value }}</td>
             </tr>

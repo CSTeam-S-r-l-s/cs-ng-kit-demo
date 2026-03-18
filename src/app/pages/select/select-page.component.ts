@@ -9,7 +9,7 @@ import {
   selector: 'app-select-page',
   imports: [ReactiveFormsModule, SelectComponent, OptionComponent, LabelGroupComponent, FormLabelDirective],
   template: `
-    <h1 style="font-size:1.5rem; font-weight:700; margin-bottom:1.5rem;">Select</h1>
+    <h1 class="text-page-title">Select</h1>
 
     <div class="docs">
       <p>Modulo che implementa i componenti <code>app-select</code> e <code>app-option</code>,

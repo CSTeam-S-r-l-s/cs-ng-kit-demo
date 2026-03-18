@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-installation-page',
   template: `
-    <h1 style="font-size:1.5rem; font-weight:700; margin-bottom:1.5rem;">Installazione</h1>
+    <h1 class="text-page-title">Installazione</h1>
 
     <div class="docs">
       <h2>1. Installa il pacchetto</h2>

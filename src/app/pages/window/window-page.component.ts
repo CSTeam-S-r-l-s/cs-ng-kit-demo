@@ -13,7 +13,7 @@ import {
     LabelGroupComponent, FormLabelDirective, InputBoxDirective
   ],
   template: `
-    <h1 style="font-size:1.5rem; font-weight:700; margin-bottom:1.5rem;">Window &amp; Dialog</h1>
+    <h1 class="text-page-title">Window &amp; Dialog</h1>
 
     <div class="docs">
       <p>Modulo contenente le finestre: <code>app-window</code> (finestra generica con barra superiore)

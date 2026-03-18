@@ -19,7 +19,7 @@ import {
     CheckboxDirective, RadioButtonDirective
   ],
   template: `
-    <h1 style="font-size:1.5rem; font-weight:700; margin-bottom:1.5rem;">Widget</h1>
+    <h1 class="text-page-title">Widget</h1>
 
     <div class="docs">
       <p>Modulo contenente i widget generici: componenti riutilizzabili senza dipendenze applicative.</p>
@@ -28,7 +28,7 @@ import {
     <!-- Container -->
     <div class="demo-section">
       <h3>Container</h3>
-      <p style="font-size:0.875rem; color:#64748b; margin-bottom:0.5rem;">Un div con contorno arrotondato.</p>
+      <p class="text-muted" style="font-size:0.875rem; margin-bottom:0.5rem;">Un div con contorno arrotondato.</p>
       <app-container style="display:flex; padding:1rem;">
         Contenuto del container
       </app-container>
@@ -109,7 +109,7 @@ import {
       <h3>Find by Text</h3>
       <app-find-by-text placeholder="Cerca per testo contenuto..." (find)="onSearch($event)" style="width:350px; display:block;"></app-find-by-text>
       @if (searchText()) {
-        <p style="font-size:0.8rem; color:#64748b; margin-top:0.5rem;">Cercato: "{{ searchText() }}"</p>
+        <p class="text-muted" style="font-size:0.8rem; margin-top:0.5rem;">Cercato: "{{ searchText() }}"</p>
       }
     </div>
 
@@ -120,7 +120,7 @@ import {
         <ng-container button>
           <app-button buttonType="PRIMARY">Apri Dropdown</app-button>
         </ng-container>
-        <div style="background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:1rem; width:200px;" dropdown>
+        <div class="dropdown-panel" style="padding:1rem; width:200px;" dropdown>
           <p>Contenuto del dropdown</p>
         </div>
       </app-dropdown>

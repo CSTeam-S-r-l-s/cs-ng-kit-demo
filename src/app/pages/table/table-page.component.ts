@@ -21,7 +21,7 @@ interface User {
     OrderableDirective, StickyColumnDirective
   ],
   template: `
-    <h1 style="font-size:1.5rem; font-weight:700; margin-bottom:1.5rem;">Table</h1>
+    <h1 class="text-page-title">Table</h1>
 
     <div class="docs">
       <p>Modulo che contiene i componenti per la visualizzazione delle tabelle con header fisso,
@@ -59,7 +59,7 @@ interface User {
           </tr>
         }
         <div footer>
-          <span style="font-size:0.8rem; color:#64748b;">{{ users.length }} risultati</span>
+          <span class="text-muted" style="font-size:0.8rem;">{{ users.length }} risultati</span>
         </div>
       </app-simple-table>
     </div>

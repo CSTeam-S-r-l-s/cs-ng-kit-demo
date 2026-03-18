@@ -18,8 +18,8 @@ import {
     WindowComponent, DialogComponent, InputBoxDirective, FormLabelDirective
   ],
   template: `
-    <h1 style="font-size:1.5rem; font-weight:700; margin-bottom:1.5rem;">Dashboard</h1>
-    <p style="color:#64748b; margin-bottom:2rem;">
+    <h1 class="text-page-title">Dashboard</h1>
+    <p class="text-muted" style="margin-bottom:2rem;">
       Panoramica dei componenti principali di <strong>cs-ng-kit</strong>.
     </p>
 
@@ -101,13 +101,13 @@ import {
         </div>
 
         <app-fieldset legend="Dati personali" style="width:300px">
-          <p style="padding:0.5rem; color:#64748b; font-size:0.875rem;">Contenuto del fieldset</p>
+          <p class="text-muted" style="padding:0.5rem; font-size:0.875rem;">Contenuto del fieldset</p>
         </app-fieldset>
 
         <div style="width:300px">
           <app-find-by-text placeholder="Cerca per testo contenuto..." (find)="onSearch($event)"></app-find-by-text>
           @if (searchText()) {
-            <p style="font-size:0.8rem; color:#64748b; margin-top:0.5rem;">Cercato: "{{ searchText() }}"</p>
+            <p class="text-muted" style="font-size:0.8rem; margin-top:0.5rem;">Cercato: "{{ searchText() }}"</p>
           }
         </div>
       </div>

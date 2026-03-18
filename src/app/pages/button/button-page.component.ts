@@ -5,7 +5,7 @@ import { ButtonComponent } from '@csteam/cs-ng-kit';
   selector: 'app-button-page',
   imports: [ButtonComponent],
   template: `
-    <h1 style="font-size:1.5rem; font-weight:700; margin-bottom:1.5rem;">Button</h1>
+    <h1 class="text-page-title">Button</h1>
 
     <div class="docs">
       <p>Modulo contenente i widget button da utilizzare nell'applicativo.</p>
