@@ -1,0 +1,64 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+env:
+  CODEARTIFACT_DOMAIN: csteam
+  CODEARTIFACT_REPOSITORY: npm-packages
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: ${{ vars.AWS_REGION }}
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+
+      # Autenticazione npm su CodeArtifact
+      - run: |
+          aws codeartifact login \
+            --tool npm \
+            --domain $CODEARTIFACT_DOMAIN \
+            --domain-owner ${{ vars.AWS_ACCOUNT_ID }} \
+            --repository $CODEARTIFACT_REPOSITORY
+
+      - run: npm ci
+
+      - run: npx ng build --base-href /cs-ng-kit-demo/
+
+      # Copia index.html come 404.html per il routing SPA
+      - run: cp dist/cs-ng-kit-demo/browser/index.html dist/cs-ng-kit-demo/browser/404.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/cs-ng-kit-demo/browser
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
