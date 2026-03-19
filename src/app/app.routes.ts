@@ -12,6 +12,7 @@ export const routes: Routes = [
       // Getting Started
       { path: 'getting-started/installation', loadComponent: () => import('./pages/installation/installation-page.component').then(m => m.InstallationPageComponent) },
       { path: 'getting-started/configuration', loadComponent: () => import('./pages/configuration/configuration-page.component').then(m => m.ConfigurationPageComponent) },
+      { path: 'getting-started/accessibility', loadComponent: () => import('./pages/accessibility/accessibility-page.component').then(m => m.AccessibilityPageComponent) },
 
       // Theming
       { path: 'theming/pure-css', loadComponent: () => import('./pages/theming-css/theming-css-page.component').then(m => m.ThemingCssPageComponent) },

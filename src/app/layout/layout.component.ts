@@ -1,6 +1,5 @@
-import { Component, signal } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -13,7 +12,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
           <div class="sidebar-title-row">
             <div>
               <h1>cs-ng-kit</h1>
-              <span class="version">v21.0.0</span>
+              <span class="version">v21.1.0</span>
             </div>
             <button class="dark-toggle" (click)="toggleDark()" [attr.title]="dark() ? 'Light mode' : 'Dark mode'">
               <i [class]="dark() ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"></i>
@@ -33,6 +32,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
           @if (sections().gettingStarted) {
             <a routerLink="/getting-started/installation" routerLinkActive="active" class="sub">Installazione</a>
             <a routerLink="/getting-started/configuration" routerLinkActive="active" class="sub">Configurazione</a>
+            <a routerLink="/getting-started/accessibility" routerLinkActive="active" class="sub">Accessibilità</a>
           }
 
           <!-- Theming -->
