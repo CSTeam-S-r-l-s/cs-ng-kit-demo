@@ -16,6 +16,7 @@ export const routes: Routes = [
 
       // Theming
       { path: 'theming/pure-css', loadComponent: () => import('./pages/theming-css/theming-css-page.component').then(m => m.ThemingCssPageComponent) },
+      { path: 'theming/scss', loadComponent: () => import('./pages/theming-scss/theming-scss-page.component').then(m => m.ThemingScssPageComponent) },
       { path: 'theming/tailwind', loadComponent: () => import('./pages/theming-tailwind/theming-tailwind-page.component').then(m => m.ThemingTailwindPageComponent) },
 
       // Componenti

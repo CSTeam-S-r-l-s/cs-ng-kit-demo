@@ -12,69 +12,69 @@ import {
     <h1 class="text-page-title">Select</h1>
 
     <div class="docs">
-      <p>Modulo che implementa i componenti <code>app-select</code> e <code>app-option</code>,
+      <p>Modulo che implementa i componenti <code>csui-select</code> e <code>csui-option</code>,
         un'estensione dei TAG <em>select</em> e <em>option</em> di HTML.</p>
       <h2>Esempi</h2>
     </div>
 
     <div class="demo-section">
       <h3>Select base</h3>
-      <app-label-group style="width:300px">
+      <csui-label-group style="width:300px">
         <label formlabel label>Lingua:</label>
-        <app-select [formControl]="singleCtrl" placeholder="Seleziona la lingua" field>
+        <csui-select [formControl]="singleCtrl" placeholder="Seleziona la lingua" field>
           @for (lang of languages; track lang.codice) {
-            <app-option [value]="lang">{{ lang.descrizione }}</app-option>
+            <csui-option [value]="lang">{{ lang.descrizione }}</csui-option>
           }
-        </app-select>
-      </app-label-group>
+        </csui-select>
+      </csui-label-group>
     </div>
 
     <div class="demo-section">
       <h3>Select con ricerca</h3>
-      <app-label-group style="width:300px">
+      <csui-label-group style="width:300px">
         <label formlabel label>Lingua:</label>
-        <app-select [formControl]="searchCtrl" placeholder="Cerca..." [withSearch]="true" field>
+        <csui-select [formControl]="searchCtrl" placeholder="Cerca..." [withSearch]="true" field>
           @for (lang of languages; track lang.codice) {
-            <app-option [value]="lang">{{ lang.descrizione }}</app-option>
+            <csui-option [value]="lang">{{ lang.descrizione }}</csui-option>
           }
-        </app-select>
-      </app-label-group>
+        </csui-select>
+      </csui-label-group>
     </div>
 
     <div class="demo-section">
       <h3>Select multipla</h3>
-      <app-label-group style="width:300px">
+      <csui-label-group style="width:300px">
         <label formlabel label>Lingue:</label>
-        <app-select [formControl]="multiCtrl" placeholder="Seleziona..." [multiple]="true" field>
+        <csui-select [formControl]="multiCtrl" placeholder="Seleziona..." [multiple]="true" field>
           @for (lang of languages; track lang.codice) {
-            <app-option [value]="lang" [multiple]="true">{{ lang.descrizione }}</app-option>
+            <csui-option [value]="lang" [multiple]="true">{{ lang.descrizione }}</csui-option>
           }
-        </app-select>
-      </app-label-group>
+        </csui-select>
+      </csui-label-group>
     </div>
 
     <div class="demo-section">
       <h3>Select disabilitata</h3>
-      <app-label-group style="width:300px">
+      <csui-label-group style="width:300px">
         <label formlabel label>Lingua:</label>
-        <app-select [formControl]="disabledCtrl" placeholder="Disabilitata" [disabled]="true" field>
+        <csui-select [formControl]="disabledCtrl" placeholder="Disabilitata" [disabled]="true" field>
           @for (lang of languages; track lang.codice) {
-            <app-option [value]="lang">{{ lang.descrizione }}</app-option>
+            <csui-option [value]="lang">{{ lang.descrizione }}</csui-option>
           }
-        </app-select>
-      </app-label-group>
+        </csui-select>
+      </csui-label-group>
     </div>
 
     <div class="docs">
       <h2>Utilizzo</h2>
-      <pre><code>&lt;app-select formControlName="codLingua" placeholder="Seleziona la lingua"
+      <pre><code>&lt;csui-select formControlName="codLingua" placeholder="Seleziona la lingua"
   [multiple]="false" [withSearch]="false"&gt;
-  &lt;app-option *ngFor="let l of languages" [value]="l" [multiple]="false"&gt;
+  &lt;csui-option *ngFor="let l of languages" [value]="l" [multiple]="false"&gt;
     {{ '{{' }} l.descrizione {{ '}}' }}
-  &lt;/app-option&gt;
-&lt;/app-select&gt;</code></pre>
+  &lt;/csui-option&gt;
+&lt;/csui-select&gt;</code></pre>
 
-      <h2>Proprietà di app-select</h2>
+      <h2>Proprietà di csui-select</h2>
       <ul>
         <li><code>multiple</code> — selezione multipla</li>
         <li><code>native</code> — usa il select nativo HTML (ignora <code>multiple</code> e <code>withSearch</code>)</li>
@@ -86,7 +86,7 @@ import {
         <li><code>nullable</code> — consente di impostare il value a <code>null</code> (default <code>true</code>)</li>
       </ul>
 
-      <h2>Proprietà di app-option</h2>
+      <h2>Proprietà di csui-option</h2>
       <ul>
         <li><code>value</code> — oggetto di tipo <code>CodDes</code></li>
         <li><code>visible</code> — rende visibile o no l'opzione</li>

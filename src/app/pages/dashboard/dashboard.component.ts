@@ -27,17 +27,17 @@ import {
     <div class="demo-section">
       <h3>Buttons</h3>
       <div class="demo-row">
-        <app-button buttonType="PRIMARY">Primary</app-button>
-        <app-button buttonType="SECONDARY">Secondary</app-button>
-        <app-button buttonType="SUCCESS">Success</app-button>
-        <app-button buttonType="WARNING">Warning</app-button>
-        <app-button buttonType="DANGER">Danger</app-button>
-        <app-button buttonType="LINK">Link</app-button>
+        <csui-button buttonType="PRIMARY">Primary</csui-button>
+        <csui-button buttonType="SECONDARY">Secondary</csui-button>
+        <csui-button buttonType="SUCCESS">Success</csui-button>
+        <csui-button buttonType="WARNING">Warning</csui-button>
+        <csui-button buttonType="DANGER">Danger</csui-button>
+        <csui-button buttonType="LINK">Link</csui-button>
       </div>
       <div class="demo-row">
-        <app-button buttonType="PRIMARY" [stroke]="true">Primary Stroke</app-button>
-        <app-button buttonType="DANGER" [stroke]="true">Danger Stroke</app-button>
-        <app-button buttonType="PRIMARY" [disabled]="true">Disabled</app-button>
+        <csui-button buttonType="PRIMARY" [stroke]="true">Primary Stroke</csui-button>
+        <csui-button buttonType="DANGER" [stroke]="true">Danger Stroke</csui-button>
+        <csui-button buttonType="PRIMARY" [disabled]="true">Disabled</csui-button>
       </div>
     </div>
 
@@ -45,25 +45,25 @@ import {
     <div class="demo-section">
       <h3>Form Controls</h3>
       <form [formGroup]="form" style="display:flex; flex-wrap:wrap; gap:1rem;">
-        <app-label-group style="width:250px">
+        <csui-label-group style="width:250px">
           <label formlabel label>Nome:</label>
           <input inputbox="text" formControlName="name" field />
-        </app-label-group>
+        </csui-label-group>
 
-        <app-label-group style="width:250px">
+        <csui-label-group style="width:250px">
           <label formlabel label>Email:</label>
           <input inputbox="email" formControlName="email" field />
-        </app-label-group>
+        </csui-label-group>
 
-        <app-label-group style="width:200px">
+        <csui-label-group style="width:200px">
           <label formlabel label>Data:</label>
-          <app-date-picker formControlName="date" field></app-date-picker>
-        </app-label-group>
+          <csui-date-picker formControlName="date" field></csui-date-picker>
+        </csui-label-group>
 
-        <app-label-group style="width:150px">
+        <csui-label-group style="width:150px">
           <label formlabel label>Ora:</label>
-          <app-time-picker formControlName="time" format="HH:mm" field></app-time-picker>
-        </app-label-group>
+          <csui-time-picker formControlName="time" format="HH:mm" field></csui-time-picker>
+        </csui-label-group>
       </form>
     </div>
 
@@ -71,23 +71,23 @@ import {
     <div class="demo-section">
       <h3>Select</h3>
       <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-        <app-label-group style="width:250px">
+        <csui-label-group style="width:250px">
           <label formlabel label>Lingua:</label>
-          <app-select [formControl]="langControl" placeholder="Seleziona la lingua" field>
+          <csui-select [formControl]="langControl" placeholder="Seleziona la lingua" field>
             @for (lang of languages; track lang.codice) {
-              <app-option [value]="lang">{{ lang.descrizione }}</app-option>
+              <csui-option [value]="lang">{{ lang.descrizione }}</csui-option>
             }
-          </app-select>
-        </app-label-group>
+          </csui-select>
+        </csui-label-group>
 
-        <app-label-group style="width:250px">
+        <csui-label-group style="width:250px">
           <label formlabel label>Con ricerca:</label>
-          <app-select [formControl]="searchLangControl" placeholder="Cerca..." [withSearch]="true" field>
+          <csui-select [formControl]="searchLangControl" placeholder="Cerca..." [withSearch]="true" field>
             @for (lang of languages; track lang.codice) {
-              <app-option [value]="lang">{{ lang.descrizione }}</app-option>
+              <csui-option [value]="lang">{{ lang.descrizione }}</csui-option>
             }
-          </app-select>
-        </app-label-group>
+          </csui-select>
+        </csui-label-group>
       </div>
     </div>
 
@@ -97,15 +97,15 @@ import {
       <div style="display:flex; gap:2rem; flex-wrap:wrap; align-items:start;">
         <div>
           <p style="font-size:0.875rem; margin-bottom:0.5rem;">Switch Box</p>
-          <app-switch-box [value]="false" />
+          <csui-switch-box [value]="false" />
         </div>
 
-        <app-fieldset legend="Dati personali" style="width:300px">
+        <csui-fieldset legend="Dati personali" style="width:300px">
           <p class="text-muted" style="padding:0.5rem; font-size:0.875rem;">Contenuto del fieldset</p>
-        </app-fieldset>
+        </csui-fieldset>
 
         <div style="width:300px">
-          <app-find-by-text placeholder="Cerca per testo contenuto..." (find)="onSearch($event)"></app-find-by-text>
+          <csui-find-by-text placeholder="Cerca per testo contenuto..." (find)="onSearch($event)"></csui-find-by-text>
           @if (searchText()) {
             <p class="text-muted" style="font-size:0.8rem; margin-top:0.5rem;">Cercato: "{{ searchText() }}"</p>
           }
@@ -117,24 +117,24 @@ import {
     <div class="demo-section">
       <h3>Window & Dialog</h3>
       <div class="demo-row">
-        <app-button buttonType="PRIMARY" (click)="demoWindow.show()">Apri Window</app-button>
-        <app-button buttonType="SECONDARY" (click)="demoDialog.show()">Apri Dialog</app-button>
+        <csui-button buttonType="PRIMARY" (click)="demoWindow.show()">Apri Window</csui-button>
+        <csui-button buttonType="SECONDARY" (click)="demoDialog.show()">Apri Dialog</csui-button>
       </div>
 
-      <app-window [modal]="true" #demoWindow>
+      <csui-window [modal]="true" #demoWindow>
         <div title>Finestra di esempio</div>
         <div body>
           <p style="padding:1rem;">Questo è il contenuto della finestra.</p>
         </div>
         <div footer>
-          <app-button buttonType="PRIMARY" (click)="demoWindow.hide()">Chiudi</app-button>
+          <csui-button buttonType="PRIMARY" (click)="demoWindow.hide()">Chiudi</csui-button>
         </div>
-      </app-window>
+      </csui-window>
 
-      <app-dialog [modal]="true" confirmLabel="Conferma" cancelLabel="Annulla"
+      <csui-dialog [modal]="true" confirmLabel="Conferma" cancelLabel="Annulla"
         (onConfirm)="demoDialog.hide()" (onCancel)="demoDialog.hide()" #demoDialog>
         <p style="padding:1rem;">Sei sicuro di voler procedere?</p>
-      </app-dialog>
+      </csui-dialog>
     </div>
   `
 })

@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet, NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 
 @Component({
@@ -25,7 +25,7 @@ import { filter } from 'rxjs';
           <div class="sidebar-title-row">
             <div>
               <h1>cs-ng-kit</h1>
-              <span class="version">v21.1.0</span>
+              <span class="version">v21.2.0</span>
             </div>
             <button class="dark-toggle" (click)="toggleDark()" [attr.title]="dark() ? 'Light mode' : 'Dark mode'">
               <i [class]="dark() ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"></i>
@@ -55,6 +55,7 @@ import { filter } from 'rxjs';
           </button>
           @if (sections().theming) {
             <a routerLink="/theming/pure-css" routerLinkActive="active" class="sub">Pure CSS</a>
+            <a routerLink="/theming/scss" routerLinkActive="active" class="sub">SCSS</a>
             <a routerLink="/theming/tailwind" routerLinkActive="active" class="sub">Tailwind</a>
           }
 

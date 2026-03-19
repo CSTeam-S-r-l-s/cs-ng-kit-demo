@@ -16,87 +16,87 @@ import {
     <h1 class="text-page-title">Window &amp; Dialog</h1>
 
     <div class="docs">
-      <p>Modulo contenente le finestre: <code>app-window</code> (finestra generica con barra superiore)
-        e <code>app-dialog</code> (finestra di dialogo con pulsanti conferma/annulla).</p>
+      <p>Modulo contenente le finestre: <code>csui-window</code> (finestra generica con barra superiore)
+        e <code>csui-dialog</code> (finestra di dialogo con pulsanti conferma/annulla).</p>
       <h2>Esempi</h2>
     </div>
 
     <!-- Window demo -->
     <div class="demo-section">
       <h3>Window</h3>
-      <app-button buttonType="PRIMARY" (click)="simpleWindow.show()">Apri Window</app-button>
+      <csui-button buttonType="PRIMARY" (click)="simpleWindow.show()">Apri Window</csui-button>
 
-      <app-window [modal]="true" [footerVisible]="true" #simpleWindow>
+      <csui-window [modal]="true" [footerVisible]="true" #simpleWindow>
         <div title>Finestra di esempio</div>
         <div body style="padding:1rem;">
           <p>Questo è il contenuto della finestra.</p>
         </div>
         <div footer style="display:flex; gap:0.5rem; justify-content:flex-end;">
-          <app-button buttonType="SECONDARY" (click)="simpleWindow.hide()">Annulla</app-button>
-          <app-button buttonType="PRIMARY" (click)="simpleWindow.hide()">Salva</app-button>
+          <csui-button buttonType="SECONDARY" (click)="simpleWindow.hide()">Annulla</csui-button>
+          <csui-button buttonType="PRIMARY" (click)="simpleWindow.hide()">Salva</csui-button>
         </div>
-      </app-window>
+      </csui-window>
     </div>
 
     <!-- Window with form -->
     <div class="demo-section">
       <h3>Window con Reactive Form</h3>
-      <app-button buttonType="PRIMARY" (click)="formWindow.show()">Apri Form Window</app-button>
+      <csui-button buttonType="PRIMARY" (click)="formWindow.show()">Apri Form Window</csui-button>
 
-      <app-window [modal]="true" [footerVisible]="true" #formWindow>
+      <csui-window [modal]="true" [footerVisible]="true" #formWindow>
         <div title>Modifica utente</div>
         <div body style="padding:1rem;">
           <form [formGroup]="form" style="display:flex; flex-direction:column; gap:0.75rem;">
-            <app-label-group>
+            <csui-label-group>
               <label formlabel label>Nome:</label>
               <input inputbox="text" formControlName="name" field />
-            </app-label-group>
-            <app-label-group>
+            </csui-label-group>
+            <csui-label-group>
               <label formlabel label>Email:</label>
               <input inputbox="email" formControlName="email" field />
-            </app-label-group>
+            </csui-label-group>
           </form>
         </div>
         <div footer style="display:flex; gap:0.5rem; justify-content:flex-end;">
-          <app-button buttonType="SECONDARY" (click)="formWindow.hide()">Annulla</app-button>
-          <app-button buttonType="PRIMARY" (click)="onSave()">Salva</app-button>
+          <csui-button buttonType="SECONDARY" (click)="formWindow.hide()">Annulla</csui-button>
+          <csui-button buttonType="PRIMARY" (click)="onSave()">Salva</csui-button>
         </div>
-      </app-window>
+      </csui-window>
     </div>
 
     <!-- Dialog demo -->
     <div class="demo-section">
       <h3>Dialog</h3>
-      <app-button buttonType="DANGER" (click)="confirmDialog.show()">Elimina elemento</app-button>
+      <csui-button buttonType="DANGER" (click)="confirmDialog.show()">Elimina elemento</csui-button>
 
-      <app-dialog [modal]="true" confirmLabel="Conferma" cancelLabel="Annulla"
+      <csui-dialog [modal]="true" confirmLabel="Conferma" cancelLabel="Annulla"
         (onConfirm)="onConfirm()" (onCancel)="confirmDialog.hide()" #confirmDialog>
         <p style="padding:1rem;">Sei sicuro di voler eliminare questo elemento?</p>
-      </app-dialog>
+      </csui-dialog>
     </div>
 
     <!-- Non-modal window -->
     <div class="demo-section">
       <h3>Window non modale</h3>
-      <app-button buttonType="SECONDARY" (click)="nonModalWindow.show()">Apri (non modale)</app-button>
+      <csui-button buttonType="SECONDARY" (click)="nonModalWindow.show()">Apri (non modale)</csui-button>
 
-      <app-window [modal]="false" [footerVisible]="false" #nonModalWindow>
+      <csui-window [modal]="false" [footerVisible]="false" #nonModalWindow>
         <div title>Finestra non modale</div>
         <div body style="padding:1rem;">
           <p>Questa finestra non oscura lo sfondo.</p>
         </div>
-      </app-window>
+      </csui-window>
     </div>
 
     <div class="docs">
       <h2>Utilizzo — Window</h2>
-      <pre><code>&lt;app-window [modal]="true" [footerVisible]="true" #myWindow&gt;
+      <pre><code>&lt;csui-window [modal]="true" [footerVisible]="true" #myWindow&gt;
   &lt;div title&gt;Titolo&lt;/div&gt;
   &lt;div body&gt;Contenuto&lt;/div&gt;
   &lt;div footer&gt;
-    &lt;app-button (click)="myWindow.hide()"&gt;Chiudi&lt;/app-button&gt;
+    &lt;csui-button (click)="myWindow.hide()"&gt;Chiudi&lt;/csui-button&gt;
   &lt;/div&gt;
-&lt;/app-window&gt;</code></pre>
+&lt;/csui-window&gt;</code></pre>
 
       <h3>Proprietà</h3>
       <ul>
@@ -118,10 +118,10 @@ import {
       </ul>
 
       <h2>Utilizzo — Dialog</h2>
-      <pre><code>&lt;app-dialog [modal]="true" confirmLabel="Conferma" cancelLabel="Annulla"
+      <pre><code>&lt;csui-dialog [modal]="true" confirmLabel="Conferma" cancelLabel="Annulla"
   (onConfirm)="onConfirm()" (onCancel)="onCancel()" #myDialog&gt;
   &lt;p&gt;Sei sicuro?&lt;/p&gt;
-&lt;/app-dialog&gt;</code></pre>
+&lt;/csui-dialog&gt;</code></pre>
 
       <h3>Proprietà</h3>
       <ul>
@@ -137,7 +137,7 @@ import {
       </ul>
 
       <h2>Window e Reactive Forms</h2>
-      <p>Poiché <code>app-window</code> è diviso in header, body e footer, il form va gestito così:</p>
+      <p>Poiché <code>csui-window</code> è diviso in header, body e footer, il form va gestito così:</p>
       <pre><code>&lt;div body&gt;
   &lt;form [formGroup]="formGroup" (ngSubmit)="handleSubmit()" #formEl="ngForm"&gt;
     ...

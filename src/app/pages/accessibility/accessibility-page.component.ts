@@ -50,50 +50,50 @@ import { RouterLink } from '@angular/router';
       <h3>Pulsante con solo icona</h3>
       <p>Quando un pulsante non ha testo visibile, <code>ariaLabel</code> è fondamentale
         per comunicare l'azione allo screen reader:</p>
-      <pre><code>&lt;app-button buttonType="DANGER" ariaLabel="Elimina riga"&gt;
+      <pre><code>&lt;csui-button buttonType="DANGER" ariaLabel="Elimina riga"&gt;
   &lt;i class="fa-solid fa-trash"&gt;&lt;/i&gt;
-&lt;/app-button&gt;
+&lt;/csui-button&gt;
 
-&lt;app-button buttonType="PRIMARY" ariaLabel="Modifica profilo"&gt;
+&lt;csui-button buttonType="PRIMARY" ariaLabel="Modifica profilo"&gt;
   &lt;i class="fa-solid fa-pen"&gt;&lt;/i&gt;
-&lt;/app-button&gt;</code></pre>
+&lt;/csui-button&gt;</code></pre>
 
       <h3>Form con date picker</h3>
-      <pre><code>&lt;app-label-group&gt;
+      <pre><code>&lt;csui-label-group&gt;
   &lt;label formlabel label&gt;Data di nascita:&lt;/label&gt;
-  &lt;app-date-picker [formControl]="birthDate" field /&gt;
-&lt;/app-label-group&gt;
+  &lt;csui-date-picker [formControl]="birthDate" field /&gt;
+&lt;/csui-label-group&gt;
 
 &lt;!-- Senza label-group, usa ariaLabel --&gt;
-&lt;app-date-picker [formControl]="birthDate"
+&lt;csui-date-picker [formControl]="birthDate"
   ariaLabel="Data di nascita" /&gt;
 
-&lt;app-date-range-picker [formControl]="period"
+&lt;csui-date-range-picker [formControl]="period"
   ariaLabel="Periodo di validità" /&gt;
 
-&lt;app-date-time-picker [formControl]="appointment"
+&lt;csui-date-time-picker [formControl]="appointment"
   ariaLabel="Data e ora appuntamento" /&gt;
 
-&lt;app-time-picker [formControl]="startTime"
+&lt;csui-time-picker [formControl]="startTime"
   ariaLabel="Ora di inizio" /&gt;</code></pre>
 
       <h3>Tabella</h3>
-      <pre><code>&lt;app-simple-table ariaLabel="Elenco ordini cliente"&gt;
+      <pre><code>&lt;csui-simple-table ariaLabel="Elenco ordini cliente"&gt;
   &lt;thead thead&gt;
     &lt;tr&gt;&lt;th&gt;ID&lt;/th&gt;&lt;th&gt;Prodotto&lt;/th&gt;&lt;th&gt;Totale&lt;/th&gt;&lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody tbody&gt;
     &lt;tr&gt;&lt;td&gt;001&lt;/td&gt;&lt;td&gt;Widget A&lt;/td&gt;&lt;td&gt;€ 120&lt;/td&gt;&lt;/tr&gt;
   &lt;/tbody&gt;
-&lt;/app-simple-table&gt;</code></pre>
+&lt;/csui-simple-table&gt;</code></pre>
 
       <h3>Switch box</h3>
-      <pre><code>&lt;app-switch-box [formControl]="notifications"
+      <pre><code>&lt;csui-switch-box [formControl]="notifications"
   ariaLabel="Attiva notifiche email" /&gt;</code></pre>
 
       <div class="demo-section" style="border-left:3px solid #3b82f6;">
         <p><strong>Nota:</strong> per i componenti form già associati a un <code>&lt;label&gt;</code> tramite
-          <code>app-label-group</code>, l'attributo <code>ariaLabel</code> non è necessario
+          <code>csui-label-group</code>, l'attributo <code>ariaLabel</code> non è necessario
           poiché lo screen reader leggerà il testo della label.</p>
       </div>
 
@@ -140,31 +140,31 @@ import { RouterLink } from '@angular/router';
 })
 export class AccessibilityPageComponent {
   builtInAria = [
-    { component: 'app-date-picker', attrs: 'role="combobox", aria-expanded, aria-haspopup="dialog"' },
-    { component: 'app-date-range-picker', attrs: 'role="combobox", aria-expanded, aria-haspopup="dialog"' },
-    { component: 'app-date-time-picker', attrs: 'role="combobox", aria-expanded, aria-haspopup="dialog"' },
-    { component: 'app-time-picker', attrs: 'role="combobox", aria-expanded, aria-haspopup="dialog"' },
-    { component: 'app-select', attrs: 'role="combobox", aria-expanded, aria-haspopup="listbox"' },
-    { component: 'app-option', attrs: 'role="option", aria-selected' },
-    { component: 'app-switch-box', attrs: 'role="switch", aria-checked, aria-disabled, aria-readonly' },
-    { component: 'app-calendar / app-calendar-range', attrs: 'role="grid", role="row", role="gridcell", aria-selected' },
-    { component: 'app-progress-bar', attrs: 'role="progressbar", aria-valuenow, aria-valuemin, aria-valuemax' },
-    { component: 'app-toast', attrs: 'aria-live="polite", role="status"' },
-    { component: 'app-toast-message', attrs: 'role dinamico (alert per error/warning, status per gli altri)' },
-    { component: 'app-dropdown', attrs: 'aria-haspopup, aria-expanded' },
-    { component: 'app-window', attrs: 'role="dialog", aria-modal' },
-    { component: 'app-file-uploader / app-simple-file-uploader', attrs: 'role="region" sulla drop zone' },
-    { component: 'app-time (spinner)', attrs: 'aria-live="polite" sui valori visualizzati' },
+    { component: 'csui-date-picker', attrs: 'role="combobox", aria-expanded, aria-haspopup="dialog"' },
+    { component: 'csui-date-range-picker', attrs: 'role="combobox", aria-expanded, aria-haspopup="dialog"' },
+    { component: 'csui-date-time-picker', attrs: 'role="combobox", aria-expanded, aria-haspopup="dialog"' },
+    { component: 'csui-time-picker', attrs: 'role="combobox", aria-expanded, aria-haspopup="dialog"' },
+    { component: 'csui-select', attrs: 'role="combobox", aria-expanded, aria-haspopup="listbox"' },
+    { component: 'csui-option', attrs: 'role="option", aria-selected' },
+    { component: 'csui-switch-box', attrs: 'role="switch", aria-checked, aria-disabled, aria-readonly' },
+    { component: 'csui-calendar / csui-calendar-range', attrs: 'role="grid", role="row", role="gridcell", aria-selected' },
+    { component: 'csui-progress-bar', attrs: 'role="progressbar", aria-valuenow, aria-valuemin, aria-valuemax' },
+    { component: 'csui-toast', attrs: 'aria-live="polite", role="status"' },
+    { component: 'csui-toast-message', attrs: 'role dinamico (alert per error/warning, status per gli altri)' },
+    { component: 'csui-dropdown', attrs: 'aria-haspopup, aria-expanded' },
+    { component: 'csui-window', attrs: 'role="dialog", aria-modal' },
+    { component: 'csui-file-uploader / csui-simple-file-uploader', attrs: 'role="region" sulla drop zone' },
+    { component: 'csui-time (spinner)', attrs: 'aria-live="polite" sui valori visualizzati' },
   ];
 
   ariaLabelComponents = [
-    { name: 'ButtonComponent', selector: 'app-button' },
-    { name: 'SimpleTableComponent', selector: 'app-simple-table' },
-    { name: 'DatePickerComponent', selector: 'app-date-picker' },
-    { name: 'DateRangePickerComponent', selector: 'app-date-range-picker' },
-    { name: 'DateTimePickerComponent', selector: 'app-date-time-picker' },
-    { name: 'TimePickerComponent', selector: 'app-time-picker' },
-    { name: 'SwitchBoxComponent', selector: 'app-switch-box' },
+    { name: 'ButtonComponent', selector: 'csui-button' },
+    { name: 'SimpleTableComponent', selector: 'csui-simple-table' },
+    { name: 'DatePickerComponent', selector: 'csui-date-picker' },
+    { name: 'DateRangePickerComponent', selector: 'csui-date-range-picker' },
+    { name: 'DateTimePickerComponent', selector: 'csui-date-time-picker' },
+    { name: 'TimePickerComponent', selector: 'csui-time-picker' },
+    { name: 'SwitchBoxComponent', selector: 'csui-switch-box' },
   ];
 
   ariaI18nKeys = [

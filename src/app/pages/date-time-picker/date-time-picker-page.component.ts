@@ -16,50 +16,50 @@ import {
     <h1 class="text-page-title">Date &amp; Time Picker</h1>
 
     <div class="docs">
-      <p>Il modulo implementa i componenti <code>app-date-picker</code>, <code>app-time-picker</code>
-        e <code>app-date-time-picker</code> per la selezione di data, ora o data/ora.</p>
+      <p>Il modulo implementa i componenti <code>csui-date-picker</code>, <code>csui-time-picker</code>
+        e <code>csui-date-time-picker</code> per la selezione di data, ora o data/ora.</p>
       <h2>Esempi</h2>
     </div>
 
     <div class="demo-section">
       <h3>DatePicker</h3>
       <form [formGroup]="form" style="display:flex; flex-wrap:wrap; gap:1rem;">
-        <app-label-group style="width:250px">
+        <csui-label-group style="width:250px">
           <label formlabel label>Data di registrazione:</label>
-          <app-date-picker formControlName="date" field></app-date-picker>
-        </app-label-group>
+          <csui-date-picker formControlName="date" field></csui-date-picker>
+        </csui-label-group>
 
-        <app-label-group style="width:250px">
+        <csui-label-group style="width:250px">
           <label formlabel label>Data (readonly):</label>
-          <app-date-picker formControlName="dateReadonly" [readonly]="true" field></app-date-picker>
-        </app-label-group>
+          <csui-date-picker formControlName="dateReadonly" [readonly]="true" field></csui-date-picker>
+        </csui-label-group>
       </form>
     </div>
 
     <div class="demo-section">
       <h3>TimePicker</h3>
       <form [formGroup]="form" style="display:flex; flex-wrap:wrap; gap:1rem;">
-        <app-label-group style="width:200px">
+        <csui-label-group style="width:200px">
           <label formlabel label>Ora:</label>
-          <app-time-picker formControlName="time" format="HH:mm" field></app-time-picker>
-        </app-label-group>
+          <csui-time-picker formControlName="time" format="HH:mm" field></csui-time-picker>
+        </csui-label-group>
       </form>
     </div>
 
     <div class="demo-section">
       <h3>DateTimePicker</h3>
       <form [formGroup]="form" style="display:flex; flex-wrap:wrap; gap:1rem;">
-        <app-label-group style="width:300px">
+        <csui-label-group style="width:300px">
           <label formlabel label>Data e ora:</label>
-          <app-date-time-picker formControlName="dateTime" field></app-date-time-picker>
-        </app-label-group>
+          <csui-date-time-picker formControlName="dateTime" field></csui-date-time-picker>
+        </csui-label-group>
       </form>
     </div>
 
     <div class="docs">
       <h2>Utilizzo — DatePicker</h2>
-      <pre><code>&lt;app-date-picker formControlName="dataRegistrazione"
-  [valid]="..." [readonly]="false"&gt;&lt;/app-date-picker&gt;</code></pre>
+      <pre><code>&lt;csui-date-picker formControlName="dataRegistrazione"
+  [valid]="..." [readonly]="false"&gt;&lt;/csui-date-picker&gt;</code></pre>
 
       <h3>Proprietà</h3>
       <ul>
@@ -74,7 +74,7 @@ import {
       </ul>
 
       <h2>Utilizzo — TimePicker</h2>
-      <pre><code>&lt;app-time-picker formControlName="ora" format="HH:mm"&gt;&lt;/app-time-picker&gt;</code></pre>
+      <pre><code>&lt;csui-time-picker formControlName="ora" format="HH:mm"&gt;&lt;/csui-time-picker&gt;</code></pre>
 
       <h3>Proprietà</h3>
       <ul>
@@ -83,7 +83,7 @@ import {
       </ul>
 
       <h2>Utilizzo — DateTimePicker</h2>
-      <pre><code>&lt;app-date-time-picker formControlName="dataRegistrazione"&gt;&lt;/app-date-time-picker&gt;</code></pre>
+      <pre><code>&lt;csui-date-time-picker formControlName="dataRegistrazione"&gt;&lt;/csui-date-time-picker&gt;</code></pre>
 
       <h3>Proprietà</h3>
       <p>Stesse proprietà di DatePicker e TimePicker combinate.</p>

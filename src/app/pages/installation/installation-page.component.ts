@@ -38,13 +38,30 @@ import { Component } from '@angular/core';
           Tailwind base, quindi va importato per ultimo per evitare conflitti.</p>
       </div>
 
+      <h2>4b. Alternativa SCSS</h2>
+      <p>Se il progetto utilizza SCSS, è possibile importare direttamente i file SCSS nel file <code>styles.scss</code> globale:</p>
+      <pre><code>&#64;use "&#64;csteam/cs-ng-kit/styles/cs-ng-kit";</code></pre>
+
+      <p>Per accedere alle variabili SCSS mappate sulle CSS custom properties della libreria:</p>
+      <pre><code>&#64;use "&#64;csteam/cs-ng-kit/styles/variables";
+
+.my-button {{ '{' }}
+  background: variables.$accent;
+  color: variables.$primary-text;
+{{ '}' }}</code></pre>
+
+      <div class="demo-section" style="border-left:3px solid #3b82f6;">
+        <p><strong>Nota:</strong> i due approcci (CSS e SCSS) sono alternativi. Non importare
+          sia <code>cs-ng-kit.css</code> che <code>cs-ng-kit.scss</code> nello stesso progetto.</p>
+      </div>
+
       <h2>5. Verifica</h2>
       <p>Importa un componente nel tuo modulo o componente standalone per verificare che tutto funzioni:</p>
       <pre><code>import {{ '{' }} ButtonComponent {{ '}' }} from '&#64;csteam/cs-ng-kit';
 
 &#64;Component({{ '{' }}
   imports: [ButtonComponent],
-  template: \`&lt;app-button buttonType="PRIMARY"&gt;Ciao!&lt;/app-button&gt;\`
+  template: \`&lt;csui-button buttonType="PRIMARY"&gt;Ciao!&lt;/csui-button&gt;\`
 {{ '}' }})
 export class MyComponent {{ '{' }}{{ '}' }}</code></pre>
     </div>

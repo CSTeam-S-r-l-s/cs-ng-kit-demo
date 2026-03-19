@@ -32,16 +32,16 @@ interface User {
     <div class="demo-section">
       <h3>Tabella con filtri e ordinamento</h3>
 
-      <app-table-filter-bar windowTitle="Filtri" [clearFiltersButton]="true" style="margin-bottom:0.75rem; display:block;">
+      <csui-table-filter-bar windowTitle="Filtri" [clearFiltersButton]="true" style="margin-bottom:0.75rem; display:block;">
         <ng-container visibleFilters>
-          <app-table-text-filter label="Username" (find)="onTextFilter($event)"></app-table-text-filter>
+          <csui-table-text-filter label="Username" (find)="onTextFilter($event)"></csui-table-text-filter>
         </ng-container>
         <ng-container windowFilters>
-          <app-table-list-filter label="Ruolo" [elements]="roleElements" (valuechange)="onRoleFilter($event)"></app-table-list-filter>
+          <csui-table-list-filter label="Ruolo" [elements]="roleElements" (valuechange)="onRoleFilter($event)"></csui-table-list-filter>
         </ng-container>
-      </app-table-filter-bar>
+      </csui-table-filter-bar>
 
-      <app-simple-table twheight="h-[350px]">
+      <csui-simple-table twheight="h-[350px]">
         <tr thead>
           <th orderable="username" orderableGroup="users" (order)="onOrder($event)"><div>Username</div></th>
           <th orderable="email" orderableGroup="users" (order)="onOrder($event)"><div>Email</div></th>
@@ -61,12 +61,12 @@ interface User {
         <div footer>
           <span class="text-muted" style="font-size:0.8rem;">{{ users.length }} risultati</span>
         </div>
-      </app-simple-table>
+      </csui-simple-table>
     </div>
 
     <div class="docs">
       <h2>Utilizzo</h2>
-      <pre><code>&lt;app-simple-table twheight="grow h-[400px] md:h-[500px]"&gt;
+      <pre><code>&lt;csui-simple-table twheight="grow h-[400px] md:h-[500px]"&gt;
   &lt;tr thead&gt;
     &lt;th orderable="username" orderableGroup="login"
       (order)="handleOrderBy($event)"&gt;&lt;div&gt;User&lt;/div&gt;&lt;/th&gt;
@@ -79,7 +79,7 @@ interface User {
   &lt;/tr&gt;
 
   &lt;div footer&gt;Footer&lt;/div&gt;
-&lt;/app-simple-table&gt;</code></pre>
+&lt;/csui-simple-table&gt;</code></pre>
 
       <h2>Struttura</h2>
       <ul>
@@ -100,21 +100,21 @@ interface User {
       </ul>
 
       <h2>Filtri</h2>
-      <h3>app-table-text-filter</h3>
+      <h3>csui-table-text-filter</h3>
       <ul>
         <li><code>label</code> — etichetta del filtro</li>
         <li><code>column</code> — nome della colonna</li>
         <li><code>(find)</code> — emette <code>&#123; column, value &#125;</code></li>
       </ul>
 
-      <h3>app-table-list-filter</h3>
+      <h3>csui-table-list-filter</h3>
       <ul>
         <li><code>elements</code> — lista di <code>CodDes</code></li>
         <li><code>label</code> — etichetta</li>
         <li><code>(valuechange)</code> — emette <code>&#123; column, value: CodDes[] &#125;</code></li>
       </ul>
 
-      <h3>app-table-filter-bar</h3>
+      <h3>csui-table-filter-bar</h3>
       <p>Barra orizzontale con filtri visibili e filtri in finestra (pulsante imbuto).
         Marcatori: <code>visibleFilters</code>, <code>windowFilters</code>, <code>preWindowFilters</code>,
         <code>postWindowFilters</code>, <code>windowFooter</code>.</p>

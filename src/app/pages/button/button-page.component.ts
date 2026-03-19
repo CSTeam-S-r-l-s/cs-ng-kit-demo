@@ -16,39 +16,39 @@ import { ButtonComponent } from '@csteam/cs-ng-kit';
     <div class="demo-section">
       <h3>Tipi di pulsante</h3>
       <div class="demo-row">
-        <app-button buttonType="PRIMARY">Primary</app-button>
-        <app-button buttonType="SECONDARY">Secondary</app-button>
-        <app-button buttonType="SUCCESS">Success</app-button>
-        <app-button buttonType="WARNING">Warning</app-button>
-        <app-button buttonType="DANGER">Danger</app-button>
-        <app-button buttonType="LINK">Link</app-button>
+        <csui-button buttonType="PRIMARY">Primary</csui-button>
+        <csui-button buttonType="SECONDARY">Secondary</csui-button>
+        <csui-button buttonType="SUCCESS">Success</csui-button>
+        <csui-button buttonType="WARNING">Warning</csui-button>
+        <csui-button buttonType="DANGER">Danger</csui-button>
+        <csui-button buttonType="LINK">Link</csui-button>
       </div>
     </div>
 
     <div class="demo-section">
       <h3>Stroke (contornato)</h3>
       <div class="demo-row">
-        <app-button buttonType="PRIMARY" [stroke]="true">Primary</app-button>
-        <app-button buttonType="SECONDARY" [stroke]="true">Secondary</app-button>
-        <app-button buttonType="SUCCESS" [stroke]="true">Success</app-button>
-        <app-button buttonType="WARNING" [stroke]="true">Warning</app-button>
-        <app-button buttonType="DANGER" [stroke]="true">Danger</app-button>
+        <csui-button buttonType="PRIMARY" [stroke]="true">Primary</csui-button>
+        <csui-button buttonType="SECONDARY" [stroke]="true">Secondary</csui-button>
+        <csui-button buttonType="SUCCESS" [stroke]="true">Success</csui-button>
+        <csui-button buttonType="WARNING" [stroke]="true">Warning</csui-button>
+        <csui-button buttonType="DANGER" [stroke]="true">Danger</csui-button>
       </div>
     </div>
 
     <div class="demo-section">
       <h3>Disabled</h3>
       <div class="demo-row">
-        <app-button buttonType="PRIMARY" [disabled]="true">Disabled</app-button>
-        <app-button buttonType="DANGER" [stroke]="true" [disabled]="true">Disabled Stroke</app-button>
+        <csui-button buttonType="PRIMARY" [disabled]="true">Disabled</csui-button>
+        <csui-button buttonType="DANGER" [stroke]="true" [disabled]="true">Disabled Stroke</csui-button>
       </div>
     </div>
 
     <div class="docs">
       <h2>Utilizzo</h2>
-      <pre><code>&lt;app-button type="button" buttonType="PRIMARY" [stroke]="true" [disabled]="false"&gt;
+      <pre><code>&lt;csui-button type="button" buttonType="PRIMARY" [stroke]="true" [disabled]="false"&gt;
   Contenuto
-&lt;/app-button&gt;</code></pre>
+&lt;/csui-button&gt;</code></pre>
 
       <h2>Proprietà</h2>
       <ul>
