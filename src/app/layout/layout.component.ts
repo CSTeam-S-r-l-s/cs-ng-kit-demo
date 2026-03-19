@@ -1,19 +1,31 @@
-import { Component, signal } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { inject } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Component, inject, signal } from '@angular/core';
+import { RouterLink, RouterLinkActive, RouterOutlet, NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-layout',
   imports: [RouterOutlet, RouterLink, RouterLinkActive],
   template: `
     <div class="layout">
-      <aside class="sidebar">
+      <header class="mobile-header">
+        <button class="hamburger" (click)="sidebarOpen.set(true)" aria-label="Apri menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <span class="mobile-title">cs-ng-kit</span>
+        <button class="dark-toggle" (click)="toggleDark()" [attr.title]="dark() ? 'Light mode' : 'Dark mode'">
+          <i [class]="dark() ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"></i>
+        </button>
+      </header>
+      @if (sidebarOpen()) {
+        <div class="sidebar-overlay" (click)="sidebarOpen.set(false)"></div>
+      }
+      <aside class="sidebar" [class.open]="sidebarOpen()">
         <div class="sidebar-header">
           <div class="sidebar-title-row">
             <div>
               <h1>cs-ng-kit</h1>
-              <span class="version">v21.0.0</span>
+              <span class="version">v21.1.0</span>
             </div>
             <button class="dark-toggle" (click)="toggleDark()" [attr.title]="dark() ? 'Light mode' : 'Dark mode'">
               <i [class]="dark() ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"></i>
@@ -33,6 +45,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
           @if (sections().gettingStarted) {
             <a routerLink="/getting-started/installation" routerLinkActive="active" class="sub">Installazione</a>
             <a routerLink="/getting-started/configuration" routerLinkActive="active" class="sub">Configurazione</a>
+            <a routerLink="/getting-started/accessibility" routerLinkActive="active" class="sub">Accessibilità</a>
           }
 
           <!-- Theming -->
@@ -66,6 +79,19 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
     </div>
   `,
   styles: [`
+    .mobile-header {
+      display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 40;
+      height: 3rem; background: #1e293b; color: #e2e8f0;
+      padding: 0 1rem; align-items: center; justify-content: space-between;
+    }
+    .hamburger {
+      background: none; border: none; color: #e2e8f0; font-size: 1.25rem; cursor: pointer;
+      padding: 0.25rem; display: flex; align-items: center;
+    }
+    .mobile-title { font-weight: 700; font-size: 1rem; }
+    .sidebar-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 49;
+    }
     .layout { display: flex; min-height: 100vh; }
     .sidebar {
       width: 250px; background: #1e293b; color: #e2e8f0;
@@ -109,13 +135,36 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
     .chevron.open { transform: rotate(180deg); }
 
     .content { margin-left: 250px; padding: 2rem; flex: 1; min-width: 0; }
+
+    @media (max-width: 768px) {
+      .mobile-header { display: flex; }
+      .sidebar-overlay { display: block; }
+      .sidebar {
+        transform: translateX(-100%); transition: transform 0.25s ease;
+        z-index: 50;
+      }
+      .sidebar.open { transform: translateX(0); }
+      .content { margin-left: 0; padding: 1rem; padding-top: 4rem; }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .sidebar { width: 220px; }
+      .content { margin-left: 220px; padding: 1.5rem; }
+    }
   `]
 })
 export class LayoutComponent {
   private document = inject(DOCUMENT);
+  private router = inject(Router);
 
   sections = signal({ gettingStarted: true, theming: false, components: true });
   dark = signal(false);
+  sidebarOpen = signal(false);
+
+  constructor() {
+    this.router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(() => {
+      this.sidebarOpen.set(false);
+    });
+  }
 
   toggle(key: 'gettingStarted' | 'theming' | 'components') {
     this.sections.update(s => ({ ...s, [key]: !s[key] }));
