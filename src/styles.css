@@ -49,3 +49,14 @@ a { text-decoration: none; color: inherit; }
 .dark .table-border-row { border-bottom-color: #334155; }
 .dark .table-border-row-light { border-bottom-color: #1e293b; }
 .dark .dropdown-panel { background: #1e293b; border-color: #334155; }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .text-page-title { font-size: 1.25rem; }
+  .demo-section { padding: 1rem; }
+  .demo-row { gap: 0.5rem; }
+  .docs pre { font-size: 0.75rem; padding: 0.75rem; }
+  .docs pre code { white-space: pre-wrap; word-break: break-word; }
+  /* Table horizontal scroll */
+  app-simple-table, .demo-section table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
