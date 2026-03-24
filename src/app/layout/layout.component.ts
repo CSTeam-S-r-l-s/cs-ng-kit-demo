@@ -25,7 +25,7 @@ import { filter } from 'rxjs';
           <div class="sidebar-title-row">
             <div>
               <h1>cs-ng-kit</h1>
-              <span class="version">v21.2.0</span>
+              <span class="version">v21.3.0</span>
             </div>
             <button class="dark-toggle" (click)="toggleDark()" [attr.title]="dark() ? 'Light mode' : 'Dark mode'">
               <i [class]="dark() ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"></i>

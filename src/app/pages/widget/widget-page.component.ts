@@ -4,7 +4,7 @@ import {
   ContainerComponent, DropdownComponent, FieldsetComponent,
   LabelGroupComponent, FindByTextComponent, SwitchBoxComponent,
   ClickToEditInputBoxComponent, ClickToEditTextAreaComponent,
-  EmailAddressComponent,
+  EmailAddressComponent, CardComponent, CardHeaderComponent, CardFooterComponent,
   ButtonComponent, InputBoxDirective, FormLabelDirective,
   CheckboxDirective, RadioButtonDirective
 } from '@csteam/cs-ng-kit';
@@ -16,7 +16,7 @@ import {
     ContainerComponent, DropdownComponent, FieldsetComponent,
     LabelGroupComponent, FindByTextComponent, SwitchBoxComponent,
     ClickToEditInputBoxComponent, ClickToEditTextAreaComponent,
-    EmailAddressComponent,
+    EmailAddressComponent, CardComponent, CardHeaderComponent, CardFooterComponent,
     ButtonComponent, InputBoxDirective, FormLabelDirective,
     CheckboxDirective, RadioButtonDirective
   ],
@@ -25,6 +25,25 @@ import {
 
     <div class="docs">
       <p>Modulo contenente i widget generici: componenti riutilizzabili senza dipendenze applicative.</p>
+    </div>
+
+    <!-- Card -->
+    <div class="demo-section">
+      <h3>Card</h3>
+      <p class="text-muted" style="font-size:0.875rem; margin-bottom:0.5rem;">Contenitore con bordo, angoli arrotondati e ombra che si intensifica al passaggio del mouse.</p>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <csui-card style="width:300px;">
+          <csui-card-header header>Titolo della card</csui-card-header>
+          <div style="padding:0.75rem;">Contenuto principale della card.</div>
+          <csui-card-footer footer>
+            <csui-button buttonType="PRIMARY">Azione</csui-button>
+          </csui-card-footer>
+        </csui-card>
+        <csui-card style="width:300px;">
+          <csui-card-header header>Card senza footer</csui-card-header>
+          <div style="padding:0.75rem;">Questa card non ha un footer.</div>
+        </csui-card>
+      </div>
     </div>
 
     <!-- Container -->
@@ -157,6 +176,16 @@ import {
     <!-- Documentation -->
     <div class="docs">
       <h2>Componenti</h2>
+
+      <h3>Card</h3>
+      <p>Contenitore con bordo, angoli arrotondati e ombra hover. Supporta content projection per header, body e footer.</p>
+      <pre><code>&lt;csui-card&gt;
+  &lt;csui-card-header header&gt;Titolo&lt;/csui-card-header&gt;
+  &lt;div class="p-3"&gt;Contenuto&lt;/div&gt;
+  &lt;csui-card-footer footer&gt;Footer&lt;/csui-card-footer&gt;
+&lt;/csui-card&gt;</code></pre>
+      <p><code>csui-card-header</code> — testata della card, con sfondo secondario e bordo inferiore.</p>
+      <p><code>csui-card-footer</code> — piede della card, con bordo superiore.</p>
 
       <h3>Container</h3>
       <pre><code>&lt;csui-container class="flex grow p-1"&gt;Contenuto&lt;/csui-container&gt;</code></pre>
